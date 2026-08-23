@@ -4,6 +4,7 @@ from app.core.config import settings
 from app.core.logging import setup_logging
 from app.core.exceptions import register_exception_handlers
 from app.api.v1.router import api_v1_router
+from app.api.v1.endpoints import health, version
 
 def create_app() -> FastAPI:
     setup_logging()
@@ -30,9 +31,7 @@ def create_app() -> FastAPI:
 
     # Include API Routers
     app.include_router(api_v1_router, prefix=settings.API_V1_STR)
-
-    @app.get("/health", tags=["System Health"])
-    def root_health():
-        return {"status": "ok", "service": settings.PROJECT_NAME, "version": settings.VERSION}
+    app.include_router(health.router, prefix="/health", tags=["System Health"])
+    app.include_router(version.router, prefix="/version", tags=["System Version"])
 
     return app

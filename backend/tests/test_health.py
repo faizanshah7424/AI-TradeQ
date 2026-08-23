@@ -9,6 +9,18 @@ def test_root_health():
     data = response.json()
     assert data["status"] == "ok"
     assert "version" in data
+    assert "service" in data
+
+def test_root_health_live():
+    response = client.get("/health/live")
+    assert response.status_code == 200
+    assert response.json()["status"] == "alive"
+
+def test_root_version():
+    response = client.get("/version")
+    assert response.status_code == 200
+    data = response.json()
+    assert data["version"] == "0.1.0"
 
 def test_health_liveness():
     response = client.get("/api/v1/health/live")

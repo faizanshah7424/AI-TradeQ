@@ -8,6 +8,6 @@ router = APIRouter()
 def get_version():
     return VersionResponse(
         version=settings.VERSION,
-        environment="development",
+        environment=settings.APP_ENV,
         build="0.1.0-bootstrap"
     )

@@ -1,11 +1,12 @@
 # Installation Guide
 
 ## Prerequisites
-- Node.js >= 20.x
-- Python >= 3.11
+- Python 3.12.x
+- Node.js 22 LTS
+- pnpm (or npm / corepack)
+- PostgreSQL 16+
+- Redis 7+
 - Docker & Docker Compose
-- PostgreSQL 16 (or containerized via Docker)
-- Redis 7 (or containerized via Docker)
 
 ## Local Installation
 1. Clone the repository:
