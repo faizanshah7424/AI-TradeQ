@@ -16,6 +16,15 @@ from app.schemas.user import (
     RoleResponse,
     PermissionResponse,
 )
+from app.schemas.market import (
+    TimeframeEnum,
+    FreshnessMetadata,
+    AssetResponse,
+    PriceResponse,
+    MarketSnapshotResponse,
+    CandleResponse,
+    OHLCVResponse,
+)
 
 __all__ = [
     "HealthResponse",
@@ -32,4 +41,11 @@ __all__ = [
     "UserResponse",
     "RoleResponse",
     "PermissionResponse",
+    "TimeframeEnum",
+    "FreshnessMetadata",
+    "AssetResponse",
+    "PriceResponse",
+    "MarketSnapshotResponse",
+    "CandleResponse",
+    "OHLCVResponse",
 ]

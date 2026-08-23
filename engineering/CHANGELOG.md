@@ -1,5 +1,21 @@
 # Engineering Changelog
 
+## [0.3.0-market] - 2026-08-23
+### Added
+- Market Data Intelligence Foundation (Task #003).
+- Database models for `CryptoAsset`, `MarketSnapshot`, and `OHLCVCandle` with unique constraints and composite indexes.
+- Standardized `TimeframeEnum` (`1m`, `5m`, `15m`, `30m`, `1h`, `4h`, `1d`, `1w`).
+- Provider abstraction (`BaseMarketDataProvider`) and concrete adapters (`MockMarketDataProvider`, `CoinGeckoProvider`, `BinanceProvider`).
+- Multi-provider fallback manager (`MarketDataProviderManager`) for zero-downtime failover.
+- Resilience layer (`ResilienceManager` and `CircuitBreaker`) with exponential backoff, jitter, and rate limit throttling.
+- Mathematical validation engine (`MarketDataValidator`) enforcing price > 0, volume >= 0, high >= low, and OHLC relationships.
+- Observable freshness engine (`FreshnessPolicy`) computing data age, staleness flags, and metadata contracts.
+- Multi-tier deterministic Redis caching layer (`MarketDataCache`) with granular TTLs.
+- Versioned market data REST endpoints (`/assets`, `/assets/{id}`, `/price`, `/snapshot`, `/ohlcv`, `/historical`).
+- Alembic database migration `003_market_data_foundation_tables.py` with top 10 crypto asset seeds.
+- Comprehensive test suite covering assets, snapshots, candles, providers, resilience, caching, and API contracts.
+- Market data architecture and API specifications in `docs/05_System_Architecture/` and `docs/08_API_Specification/`.
+
 ## [0.2.0-auth] - 2026-08-23
 ### Added
 - Authentication & Identity Management foundation (Task #002).

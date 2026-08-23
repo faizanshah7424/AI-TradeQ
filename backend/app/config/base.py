@@ -42,7 +42,26 @@ class BaseConfig(BaseSettings):
     REDIS_HOST: str = "localhost"
     REDIS_PORT: int = 6379
 
-    BACKEND_CORS_ORIGINS: List[str] = ["http://localhost:3000", "http://127.0.0.1:3000"]
+    # Market Data Provider Configuration
+    PRIMARY_MARKET_DATA_PROVIDER: str = "mock"
+    FALLBACK_MARKET_DATA_PROVIDER: str = "mock"
+    COINGECKO_API_KEY: str = ""
+    COINGECKO_API_URL: str = "https://api.coingecko.com/api/v3"
+    BINANCE_API_KEY: str = ""
+    BINANCE_API_SECRET: str = ""
+    BINANCE_API_URL: str = "https://api.binance.com/api/v3"
+
+    # Market Data Caching & TTLs (Seconds)
+    MARKET_CACHE_PRICE_TTL_SECONDS: int = 15
+    MARKET_CACHE_SNAPSHOT_TTL_SECONDS: int = 60
+    MARKET_CACHE_OHLCV_TTL_SECONDS: int = 60
+    MARKET_CACHE_ASSETS_TTL_SECONDS: int = 3600
+
+    # Market Data Freshness Thresholds (Seconds)
+    MARKET_DATA_MAX_STALENESS_PRICE_SECONDS: int = 60
+    MARKET_DATA_MAX_STALENESS_SNAPSHOT_SECONDS: int = 300
+    MARKET_DATA_HTTP_TIMEOUT_SECONDS: float = 10.0
+    MARKET_DATA_MAX_RETRIES: int = 3
 
     class Config:
         case_sensitive = True

@@ -4,6 +4,7 @@ from app.models.permission import Permission
 from app.models.associations import user_roles, role_permissions
 from app.models.refresh_token import RefreshToken
 from app.models.audit_log import AuthAuditLog
+from app.models.market import CryptoAsset, MarketSnapshot, OHLCVCandle
 
 __all__ = [
     "User",
@@ -13,4 +14,7 @@ __all__ = [
     "role_permissions",
     "RefreshToken",
     "AuthAuditLog",
+    "CryptoAsset",
+    "MarketSnapshot",
+    "OHLCVCandle",
 ]
